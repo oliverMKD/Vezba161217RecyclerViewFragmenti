@@ -1,8 +1,10 @@
-package com.example.oliver.vezba161217_recyclerviewfragmenti;
+package com.example.oliver.vezba161217_recyclerviewfragmenti.Fragments;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.oliver.vezba161217_recyclerviewfragmenti.Main2Activity;
 
 import java.util.ArrayList;
 

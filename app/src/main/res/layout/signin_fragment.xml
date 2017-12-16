@@ -17,4 +17,11 @@
         android:layout_height="wrap_content"
         android:hint="Pass"/>
 
+    <Button
+        android:id="@+id/kopceProveri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPass"
+        android:hint="ponataka"/>
+
 </RelativeLayout>
