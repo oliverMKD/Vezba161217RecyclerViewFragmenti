@@ -12,6 +12,7 @@ import com.example.oliver.vezba161217_recyclerviewfragmenti.SharedPreferences.Us
 import com.google.gson.Gson;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class Main2Activity extends AppCompatActivity {
     @BindView(R.id.myPager)
@@ -23,6 +24,7 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        ButterKnife.bind(this);
 
         SharedPreferences preferences = getSharedPreferences("MyFiles", MODE_PRIVATE);
         if (preferences.contains("User")) {

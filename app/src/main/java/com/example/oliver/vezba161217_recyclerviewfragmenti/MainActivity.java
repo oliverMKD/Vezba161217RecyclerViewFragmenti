@@ -61,25 +61,31 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.kopce1)
     public void Vnesi() {
+        String godinaPromenliva;
 
         String imeRezultat = ime.getText().toString();
         String prezimeRezultat = prezime.getText().toString();
         String usernameRezultat = username.getText().toString();
         String passRezultat = password.getText().toString();
-        int ageRezultat = Integer.parseInt(age.getText().toString());
+        age.setText("0");
+        godinaPromenliva = age.getText().toString();
+        int ageRezultat = Integer.parseInt(godinaPromenliva);
         String adressRezultat = adress.getText().toString();
         defaultSlika = slika.getText().toString();
-        User user = new User(imeRezultat, prezimeRezultat, usernameRezultat, passRezultat, adressRezultat, ageRezultat, defaultSlika);
-        SharedPreferences preferences = getSharedPreferences("MyFiles", MODE_PRIVATE);
-        Gson gson = new Gson();
-        String mapString = gson.toJson(user);
-        preferences.edit().putString("User", mapString).apply();
+        if (!imeRezultat.isEmpty()&&!prezimeRezultat.isEmpty()&&!usernameRezultat.isEmpty()&&!passRezultat.isEmpty()&&!godinaPromenliva.isEmpty()&&!adressRezultat.isEmpty()) {
+            User user = new User(imeRezultat, prezimeRezultat, usernameRezultat, passRezultat, adressRezultat, ageRezultat, defaultSlika);
+            SharedPreferences preferences = getSharedPreferences("MyFiles", MODE_PRIVATE);
+            Gson gson = new Gson();
+            String mapString = gson.toJson(user);
+            preferences.edit().putString("User", mapString).apply();
 
-        Intent intent = new Intent(this, Main2Activity.class);
-        startActivity(intent);
+            Intent intent = new Intent(this, Main2Activity.class);
+            startActivity(intent);
 //        preferences.edit().putString("Ime",imeRezultat).apply();
 //        preferences.edit().putString("Prezime",prezimeRezultat).apply();
-
+        } else {
+            kopceNext.setError("Fill all fields");
+        }
 
     }
 

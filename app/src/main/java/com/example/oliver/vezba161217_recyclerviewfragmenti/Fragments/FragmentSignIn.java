@@ -27,4 +27,9 @@ public class FragmentSignIn extends Fragment{
 
         return view;
     }
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        mUnbinder.unbind();
+    }
 }

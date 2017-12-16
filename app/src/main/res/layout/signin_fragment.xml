@@ -4,4 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <EditText
+        android:id="@+id/txtUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="User"/>
+
+    <EditText
+        android:layout_below="@+id/txtUser"
+        android:id="@+id/txtPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pass"/>
+
 </RelativeLayout>
