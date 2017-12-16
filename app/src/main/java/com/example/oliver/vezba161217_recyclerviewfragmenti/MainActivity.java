@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -49,21 +51,36 @@ public class MainActivity extends AppCompatActivity {
 
         String imeRezultat = ime.getText().toString();
         String prezimeRezultat = prezime.getText().toString();
-
+        User user = new User(imeRezultat,prezimeRezultat);
         SharedPreferences preferences = getSharedPreferences("MyFiles",MODE_PRIVATE);
-        preferences.edit().putString("Ime",imeRezultat).apply();
-        preferences.edit().putString("Prezime",prezimeRezultat).apply();
+        Gson gson = new Gson();
+        String mapString = gson.toJson(user);
+        preferences.edit().putString("User",mapString).apply();
+//        preferences.edit().putString("Ime",imeRezultat).apply();
+//        preferences.edit().putString("Prezime",prezimeRezultat).apply();
+
+
     }
 
     @OnClick(R.id.kopce2)
     public void Load(){
 
         SharedPreferences preferences = getSharedPreferences("MyFiles",MODE_PRIVATE);
-        String name = preferences.getString("Ime","");
-        String lastname = preferences.getString("Prezime","");
+//        String name = preferences.getString("Ime","");
+//        String lastname = preferences.getString("Prezime","");
 
-        ime.setText(name);
-        prezime.setText(lastname);
+
+//        ime.setText(name);
+//        prezime.setText(lastname);
+        User user1;
+        Gson gson = new Gson();
+        user1 = gson.fromJson(preferences.getString("User",""),User.class);
+        ime.setText(user1.getName());
+        prezime.setText(user1.getLastname());
+
+
     }
+
+
 
 }

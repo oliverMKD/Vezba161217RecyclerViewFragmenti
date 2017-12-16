@@ -8,8 +8,8 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-    String name;
-    String lastname;
+    public String name;
+    public String lastname;
 
     public User(String name, String lastname) {
         this.name = name;
